@@ -43,6 +43,7 @@ void s3eAndroidOSTerminate();
  */
 void s3eAndroidOSTerminate_platform();
 const char* s3eAndroidOSGetManufacturer_platform();
+const char* s3eAndroidOSGetModel_platform();
 
 
 #endif /* !S3EANDROIDOS_INTERNAL_H */

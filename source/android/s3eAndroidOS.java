@@ -19,4 +19,9 @@ class s3eAndroidOS
     {
         return Build.MANUFACTURER;
     }
+    
+    public static String s3eAndroidOSGetModel()
+    {
+        return Build.MODEL;
+    }
 }

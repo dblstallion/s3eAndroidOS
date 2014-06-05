@@ -1,0 +1,1 @@
+python %S3E_DIR%\edk\builder\edk_build.py s3eAndroidOS.s4e --platform=android

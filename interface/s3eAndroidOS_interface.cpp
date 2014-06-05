@@ -23,6 +23,7 @@
  * Definitions for functions types passed to/from s3eExt interface
  */
 typedef const char*(*s3eAndroidOSGetManufacturer_t)();
+typedef const char*(*s3eAndroidOSGetModel_t)();
 
 /**
  * struct that gets filled in by s3eAndroidOSRegister
@@ -30,6 +31,7 @@ typedef const char*(*s3eAndroidOSGetManufacturer_t)();
 typedef struct s3eAndroidOSFuncs
 {
     s3eAndroidOSGetManufacturer_t m_s3eAndroidOSGetManufacturer;
+    s3eAndroidOSGetModel_t m_s3eAndroidOSGetModel;
 } s3eAndroidOSFuncs;
 
 static s3eAndroidOSFuncs g_Ext;
@@ -87,6 +89,26 @@ const char* s3eAndroidOSGetManufacturer()
 #endif
 
     const char* ret = g_Ext.m_s3eAndroidOSGetManufacturer();
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
+}
+
+const char* s3eAndroidOSGetModel()
+{
+    IwTrace(ANDROIDOS_VERBOSE, ("calling s3eAndroidOS[1] func: s3eAndroidOSGetModel"));
+
+    if (!_extLoad())
+        return NULL;
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    const char* ret = g_Ext.m_s3eAndroidOSGetModel();
 
 #ifdef LOADER_CALL_LOCK
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);

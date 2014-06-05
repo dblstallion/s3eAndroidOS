@@ -21,13 +21,14 @@ extern void s3eAndroidOSTerminate();
 void s3eAndroidOSRegisterExt()
 {
     /* fill in the function pointer struct for this extension */
-    void* funcPtrs[1];
+    void* funcPtrs[2];
     funcPtrs[0] = (void*)s3eAndroidOSGetManufacturer;
+    funcPtrs[1] = (void*)s3eAndroidOSGetModel;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching
      */
-    int flags[1] = { 0 };
+    int flags[2] = { 0 };
 
     /*
      * Register the extension

@@ -16,6 +16,7 @@
 static jclass g_s3eAndroidOSClass;
 static jobject g_Obj;
 static jmethodID g_s3eAndroidOSGetManufacturerHelper;
+static jmethodID g_s3eAndroidOSGetModelHelper;
 
 s3eResult s3eAndroidOSInit_platform()
 {
@@ -44,6 +45,9 @@ s3eResult s3eAndroidOSInit_platform()
     if (!g_s3eAndroidOSGetManufacturerHelper)
         goto fail;
 
+    g_s3eAndroidOSGetModelHelper = env->GetStaticMethodID(g_s3eAndroidOSClass, "s3eAndroidOSGetModel", "()Ljava/lang/String;");
+    if (!g_s3eAndroidOSGetModelHelper)
+        goto fail;
 
 
     IwTrace(ANDROIDOS, ("ANDROIDOS init success"));
@@ -84,4 +88,19 @@ const char* s3eAndroidOSGetManufacturer_platform()
     env->DeleteLocalRef(manufacturerJString);
     
     return manufacturer;
+}
+
+static char model[128];
+const char* s3eAndroidOSGetModel_platform()
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    jstring modelJString = (jstring)env->CallStaticObjectMethod(g_s3eAndroidOSClass, g_s3eAndroidOSGetModelHelper);
+    const char* modelCString = env->GetStringUTFChars(modelJString, 0);
+    
+    strncpy(model, modelCString, sizeof(model));
+    
+    env->ReleaseStringUTFChars(modelJString, modelCString);
+    env->DeleteLocalRef(modelJString);
+    
+    return model;
 }

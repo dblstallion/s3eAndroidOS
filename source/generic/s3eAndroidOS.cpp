@@ -27,3 +27,8 @@ const char* s3eAndroidOSGetManufacturer()
 {
 	return s3eAndroidOSGetManufacturer_platform();
 }
+
+const char* s3eAndroidOSGetModel()
+{
+	return s3eAndroidOSGetModel_platform();
+}

@@ -28,6 +28,8 @@ s3eBool s3eAndroidOSAvailable();
 
 const char* s3eAndroidOSGetManufacturer();
 
+const char* s3eAndroidOSGetModel();
+
 S3E_END_C_DECL
 
 #endif /* !S3E_EXT_ANDROIDOS_H */

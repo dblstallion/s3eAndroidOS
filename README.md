@@ -8,3 +8,4 @@ http://developer.android.com/reference/android/os/Build.html
 Currently exposed string fields:
 
 * `android.os.Build.MANUFACTURER`
+* `android.os.Build.MODEL`
