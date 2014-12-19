@@ -33,7 +33,7 @@ void s3eAndroidOSRegisterExt()
     /*
      * Register the extension
      */
-    s3eEdkRegister("s3eAndroidOS", funcPtrs, sizeof(funcPtrs), flags, s3eAndroidOSInit, s3eAndroidOSTerminate, 0);
+s3eEdkRegister("s3eAndroidOS", funcPtrs, sizeof(funcPtrs), flags, s3eAndroidOSInit, s3eAndroidOSTerminate, 0);
 }
 
 #if !defined S3E_BUILD_S3ELOADER

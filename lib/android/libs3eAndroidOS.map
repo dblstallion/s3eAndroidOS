@@ -1,14 +1,14 @@
 Archive member included because of file (symbol)
 
-C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
                               release\s3eAndroidOS_platform.os (s3eEdkThreadRunOnOS)
 
 Discarded input sections
 
- .text          0x00000000       0x14 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .bss           0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .text          0x00000000       0x14 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
+ .bss           0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
  .note.GNU-stack
-                0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
  .group         0x00000000        0x8 release\s3eAndroidOS_platform.os
  .group         0x00000000        0x8 release\s3eAndroidOS_platform.os
  .text          0x00000000        0x0 release\s3eAndroidOS_platform.os
@@ -27,20 +27,20 @@ Discarded input sections
                 0x00000000       0x84 release\s3eAndroidOS_register.os
  .note.GNU-stack
                 0x00000000        0x0 release\s3eAndroidOS_register.os
- .text          0x00000000        0x0 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
- .data          0x00000000        0x0 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
- .bss           0x00000000        0x0 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
- .text.s3eEdkThreadRunOnOSAsync
-                0x00000000       0x30 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
  .text.s3eEdkErrorSetString
-                0x00000000       0x30 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+                0x00000000       0x30 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text.s3eEdkThreadRunOnOSAsync
+                0x00000000       0x30 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
- .text          0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
- .data          0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
- .bss           0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x00000000        0x0 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
+ .data          0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
+ .bss           0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
  .note.GNU-stack
-                0x00000000        0x0 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x00000000        0x0 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
 
 Memory map
 
@@ -74,7 +74,7 @@ Memory map
  ** PLT         0x00000384       0x50
 
 .text           0x000003d4      0x520
- .text.exit     0x000003d4       0x10 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .text.exit     0x000003d4       0x10 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
                 0x000003d4                __on_dlclose
  .text._ZL27s3eEdkAndroidFindClass_realPKc
                 0x000003e4       0xb8 release\s3eAndroidOS_platform.os
@@ -112,7 +112,7 @@ Memory map
                 0x00000840       0x84 release\s3eAndroidOS_register.os
                 0x00000840                RegisterExt
  .text.s3eEdkThreadRunOnOS
-                0xffffffffffffffff       0x30 C:\marmalade\7.2\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+                0xffffffffffffffff       0x30 C:\marmalade\7.4\s3e\edk\lib\android/libedk.a(edk_helpers.o)
                 0x000008c4                s3eEdkThreadRunOnOS
 
 .rodata         0x000008f4       0x65
@@ -120,11 +120,11 @@ Memory map
                 0x000008f4       0x65
 
 .fini_array     0x00001ee4        0x8
- .fini_array    0x00001ee4        0x4 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .fini_array    0x00001ee8        0x4 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .fini_array    0x00001ee4        0x4 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
+ .fini_array    0x00001ee8        0x4 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
 
 .init_array     0x00001eec        0x4
- .init_array    0x00001eec        0x4 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .init_array    0x00001eec        0x4 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtend_so.o
 
 .dynamic        0x00001ef0       0xe0
  ** dynamic     0x00001ef0       0xe0
@@ -134,7 +134,7 @@ Memory map
  ** GOT PLT     0x00001fe0       0x20
 
 .data           0x00002000        0x4
- .data          0x00002000        0x4 C:/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .data          0x00002000        0x4 C:/android-ndk-r9/platforms/android-14/arch-arm/usr/lib/crtbegin_so.o
                 0x00002000                __dso_handle
 
 .bss            0x00002004      0x110
