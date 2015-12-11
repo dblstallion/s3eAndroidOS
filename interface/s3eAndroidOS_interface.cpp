@@ -11,28 +11,17 @@
 #include "s3eAndroidOS.h"
 
 
+// Define S3E_EXT_SKIP_LOADER_CALL_LOCK on the user-side to skip LoaderCallStart/LoaderCallDone()-entry.
+// e.g. in s3eNUI this is used for generic user-side IwUI-based implementation.
 #ifndef S3E_EXT_SKIP_LOADER_CALL_LOCK
-// For MIPs (and WP8) platform we do not have asm code for stack switching
-// implemented. So we make LoaderCallStart call manually to set GlobalLock
-#if defined __mips || defined S3E_ANDROID_X86 || (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP))
+#if defined I3D_ARCH_MIPS || (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)) || defined I3D_ARCH_NACLX86_64
+// For platforms missing stack-switching (MIPS, WP8, NaCl, etc.) make loader-entry via LoaderCallStart/LoaderCallDone() on the user-side.
 #define LOADER_CALL_LOCK
 #endif
 #endif
 
-/**
- * Definitions for functions types passed to/from s3eExt interface
- */
-typedef const char*(*s3eAndroidOSGetManufacturer_t)();
-typedef const char*(*s3eAndroidOSGetModel_t)();
 
-/**
- * struct that gets filled in by s3eAndroidOSRegister
- */
-typedef struct s3eAndroidOSFuncs
-{
-    s3eAndroidOSGetManufacturer_t m_s3eAndroidOSGetManufacturer;
-    s3eAndroidOSGetModel_t m_s3eAndroidOSGetModel;
-} s3eAndroidOSFuncs;
+#include "s3eAndroidOS_interface.h"
 
 static s3eAndroidOSFuncs g_Ext;
 static bool g_GotExt = false;
@@ -85,13 +74,13 @@ const char* s3eAndroidOSGetManufacturer()
         return NULL;
 
 #ifdef LOADER_CALL_LOCK
-    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+    s3eDeviceLoaderCallStart(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetManufacturer);
 #endif
 
     const char* ret = g_Ext.m_s3eAndroidOSGetManufacturer();
 
 #ifdef LOADER_CALL_LOCK
-    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+    s3eDeviceLoaderCallDone(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetManufacturer);
 #endif
 
     return ret;
@@ -105,13 +94,33 @@ const char* s3eAndroidOSGetModel()
         return NULL;
 
 #ifdef LOADER_CALL_LOCK
-    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+    s3eDeviceLoaderCallStart(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetModel);
 #endif
 
     const char* ret = g_Ext.m_s3eAndroidOSGetModel();
 
 #ifdef LOADER_CALL_LOCK
-    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+    s3eDeviceLoaderCallDone(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetModel);
+#endif
+
+    return ret;
+}
+
+int s3eAndroidOSGetUIModeType()
+{
+    IwTrace(ANDROIDOS_VERBOSE, ("calling s3eAndroidOS[2] func: s3eAndroidOSGetUIModeType"));
+
+    if (!_extLoad())
+        return 0;
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallStart(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetUIModeType);
+#endif
+
+    int ret = g_Ext.m_s3eAndroidOSGetUIModeType();
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallDone(S3E_TRUE, (void*)g_Ext.m_s3eAndroidOSGetUIModeType);
 #endif
 
     return ret;

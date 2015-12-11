@@ -22,7 +22,8 @@ S3E_BEGIN_C_DECL
 // \endcond
 
 /**
- * Returns S3E_TRUE if the AndroidOS extension is available.
+ * Report if the AndroidOS extension is available.
+ * @return S3E_TRUE if the AndroidOS extension is available. S3E_FALSE otherwise.
  */
 s3eBool s3eAndroidOSAvailable();
 
@@ -30,6 +31,10 @@ const char* s3eAndroidOSGetManufacturer();
 
 const char* s3eAndroidOSGetModel();
 
+int s3eAndroidOSGetUIModeType();
+
+// \cond HIDDEN_DEFINES
 S3E_END_C_DECL
+// \endcond
 
 #endif /* !S3E_EXT_ANDROIDOS_H */

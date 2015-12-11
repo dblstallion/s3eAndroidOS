@@ -32,3 +32,8 @@ const char* s3eAndroidOSGetModel()
 {
 	return s3eAndroidOSGetModel_platform();
 }
+
+int s3eAndroidOSGetUIModeType()
+{
+	return s3eAndroidOSGetUIModeType_platform();
+}

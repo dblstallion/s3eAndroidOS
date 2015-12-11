@@ -4,3 +4,4 @@ include:
 functions:
 const char* s3eAndroidOSGetManufacturer() NULL
 const char* s3eAndroidOSGetModel() NULL
+int s3eAndroidOSGetUIModeType() 0

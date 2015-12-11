@@ -13,6 +13,11 @@ import com.ideaworks3d.marmalade.LoaderAPI;
 
 import android.os.Build;
 
+import android.app.UiModeManager;
+
+import com.ideaworks3d.marmalade.LoaderAPI;
+import com.ideaworks3d.marmalade.LoaderActivity;
+
 class s3eAndroidOS
 {
     public static String s3eAndroidOSGetManufacturer()
@@ -24,4 +29,10 @@ class s3eAndroidOS
     {
         return Build.MODEL;
     }
+	
+	public static int s3eAndroidOSGetUIModeType()
+	{
+		UiModeManager uiModeManager = (UiModeManager) LoaderAPI.getActivity().getSystemService(LoaderAPI.getActivity().UI_MODE_SERVICE);
+		return uiModeManager.getCurrentModeType();
+	}
 }

@@ -15,7 +15,7 @@
 #ifndef S3E_EXT_REGISTER_KEY
 #define S3E_EXT_REGISTER_KEY(name, num, key) S3E_EXT_REGISTER(name, num)
 #endif
-S3E_EXT_REGISTER("s3eAndroidOS", 2)
+S3E_EXT_REGISTER("s3eAndroidOS", 3)
 #else
 
 #endif /* S3E_EXT_REGISTER */

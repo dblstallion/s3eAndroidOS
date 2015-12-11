@@ -17,6 +17,7 @@ static jclass g_s3eAndroidOSClass;
 static jobject g_Obj;
 static jmethodID g_s3eAndroidOSGetManufacturerHelper;
 static jmethodID g_s3eAndroidOSGetModelHelper;
+static jmethodID g_s3eAndroidOSGetUIModeType;
 
 s3eResult s3eAndroidOSInit_platform()
 {
@@ -47,6 +48,10 @@ s3eResult s3eAndroidOSInit_platform()
 
     g_s3eAndroidOSGetModelHelper = env->GetStaticMethodID(g_s3eAndroidOSClass, "s3eAndroidOSGetModel", "()Ljava/lang/String;");
     if (!g_s3eAndroidOSGetModelHelper)
+        goto fail;
+	
+	g_s3eAndroidOSGetUIModeType = env->GetStaticMethodID(g_s3eAndroidOSClass, "s3eAndroidGetUIModeType", "()I;");
+    if (!g_s3eAndroidOSGetUIModeType)
         goto fail;
 
 
@@ -103,4 +108,10 @@ const char* s3eAndroidOSGetModel_platform()
     env->DeleteLocalRef(modelJString);
     
     return model;
+}
+
+int s3eAndroidOSGetUIModeType_platform()
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    return (int)env->CallStaticIntMethod(g_s3eAndroidOSClass, g_s3eAndroidOSGetUIModeType);
 }
